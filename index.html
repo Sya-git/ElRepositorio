@@ -62,11 +62,6 @@
       </a-assets>
       <!-- https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png -->
       <!-- <a-marker markerhandler preset='hiro' raycaster="objects: .clickable"> -->
-      <a-marker markerhandler preset='hiro' raycaster="objects: .clickable">
-        <a-video id="vp" src="#videoFireworks" width="16" height="16" position="0 0 0" rotation="90 0 0" scale="0.05 0.05 0.05" geometry=""></a-video>
-        <a-circle  id="rButton" class="clickable" color="#FFDDAA" position="0.5 0 0" radius="0.09" rotation="-90 0 0" src-vid="#videoBunny" play-click=""></a-circle>
-        <a-circle  id="lButton" class="clickable" color="#FFDDAA" position="-0.5 0 0" radius="0.09" rotation="-90 0 0" src-vid="#videoFireworks" play-click=""></a-circle>
-      </a-marker>
 
       <a-marker markerhandler preset='custom' url="pattern-evidenciagray" raycaster="objects: .clickable"></a-marker>
         <!--<a-video id="myVideo" src="#videoFireworks" width="16" height="9" position="0 0 0" rotation="90 0 0" scale="0.05 0.05 0.05" geometry=""></a-video>-->
@@ -75,13 +70,6 @@
         <a-circle  id="lButton" class="clickable" color="#FFDDAA" position="-0.5 0 0" radius="0.09" rotation="-90 0 0" src-vid="#videoFireworks" play-click=""></a-circle>
       </a-marker>
 
-      <a-nft type='nft' url="evidencia"
-        smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
-        >
-        <a-video id="vp" src="#videoFireworks" width="16" height="16" position="0 0 0" rotation="90 0 0" scale="0.05 0.05 0.05" geometry=""></a-video>
-        <a-circle  id="rButton" class="clickable" color="#FFDDAA" position="0.5 0 0" radius="0.09" rotation="-90 0 0" src-vid="#videoBunny" play-click=""></a-circle>
-        <a-circle  id="lButton" class="clickable" color="#FFDDAA" position="-0.5 0 0" radius="0.09" rotation="-90 0 0" src-vid="#videoFireworks" play-click=""></a-circle>
-      </a-nft>
       <a-entity camera look-controls>
         <a-entity cursor="fuse: true; fuseTimeout: 500"
                   position="0 0 -1"

@@ -1,89 +1,52 @@
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
 
-<script>
-  AFRAME.registerComponent('markerhandler', 
-  {
-    init: function () {
-      this.el.sceneEl.addEventListener('markerFound', () =>
-      {
-        var videoEl = document.getElementById('videoFireworks');
-        videoEl.play();
-      }),
-      this.el.sceneEl.addEventListener('markerLost', () => 
-      {
-        var videoEl = document.getElementById('videoFireworks');
-        //var video = videoEl.getAttribute('material').src;
-        videoEl.pause();
-      })
-    }
-  });
-  AFRAME.registerComponent('play-click', 
-  {
-    init: function () {
-      this.onClick = this.onClick.bind(this);
-    },
-    play: function () {
-      window.addEventListener('click', this.onClick);
-    },
-    pause: function () {
-      window.removeEventListener('click', this.onClick);
-    },
-    onClick: function (evt) {
-      evt.stopPropagation();
-      console.log('CLICK');
-      console.log(evt.target);
-      var videoEl = document.getElementById('vp');
-      if(!videoEl)
-        return;
-      var videoSrcName = evt.target.getAttribute('src-vid');
-      if(!videoSrcName)
-        return;
-      videoEl.setAttribute('src', videoSrcName);
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-      var trueVid = document.getElementById(videoSrcName.slice(1));
-      if(!trueVid)
-        return;
-      trueVid.play();
-    }
-  })
-</script>
-<html>
-  <body style="margin : 0px; overflow: hidden;">
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+
+<!-- rawgithack development URL -->
+<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+<!--<script src='../../../../aframe/build/aframe-ar-nft.js'></script>-->
+
+
+<body style='margin : 0px; overflow: hidden;'>
+   <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
     <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    >
+        vr-mode-ui='enabled: false;'
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
-      <a-assets>
-          <video id="videoBunny" preload="auto" src="https://cdn.aframe.io/videos/bunny.mp4" width="160" height="90" autoplay="" loop="true" crossorigin="anonymous" muted="false" playsinline="" webkit-playsinline=""></video>
-          <video id="videoFireworks" preload="auto" src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/elvideo.mp4" autoplay="" loop="true" crossorigin="anonymous" muted="false" playsinline="" webkit-playsinline=""></video>
-      </a-assets>
-      <!-- https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png -->
-      <!-- <a-marker markerhandler preset='hiro' raycaster="objects: .clickable"> -->
-
-      <a-nft
-      type="nft"
-      url="./trex"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-      >
-        <a-box position="0 0 0" color="yellow"></a-box>
-        <a-box position="150 300 -100" color="blue" scale="5 5 5"></a-box>
-      </a-nft>
-
-      <a-entity camera look-controls>
-        <a-entity cursor="fuse: true; fuseTimeout: 500"
-                  position="0 0 -1"
-                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-                  material="color: black; shader: flat">
-        </a-entity>
-      </a-entity>
-      <a-entity camera></a-entity>
+        <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
+        <a-nft
+            type='nft' url='./trex/trex-image/trex'
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            <a-entity
+                gltf-model='./trex/scene.gltf'
+                scale="5 5 5"
+                position="150 300 -100"
+                >
+            </a-entity>
+        </a-nft>
+		<a-entity camera></a-entity>
     </a-scene>
-  </body>
-</html>
+</body>

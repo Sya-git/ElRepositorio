@@ -53,12 +53,12 @@
     embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
     <a-assets>
-        <video src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/elvideo.mp4"
+        <video src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/videos/catdrive.mp4"
             preload="auto" id="vid" response-type="arraybuffer" loop
             crossorigin webkit-playsinline autoplay muted playsinline>
         </video>
     </a-assets>
-    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+    
     <a-nft
       type="nft"
       url="https://raw.githubusercontent.com/Sya-git/ElRepositorio/main/nfts/gato/miau"
@@ -66,13 +66,7 @@
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5">
-        <a-video
-        src="#vid"
-        position='50 150 -100'
-        rotation='90 0 180'
-        width='300'
-        height='175'
-        ></a-video>
+        <a-video src="#vid" position='0 0 -100' rotation='90 0 180' width='300' height='175'></a-video>
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>

@@ -48,7 +48,7 @@
                 var blackplane = document.getElementById('blackplane');
                 blackplane.setAttribute('scale', '1 ' + markerAspectRatio + ' 1');
             });
-            
+
             AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
@@ -69,7 +69,7 @@
                     }.bind(this));
                 }
             });
-            
+
             lButton.addEventListener("click", evt => {
                 playVideo(evt);
             });
@@ -80,21 +80,21 @@
     </script>
 </head>
 <body>
-<a-scene mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Sya-git/ElRepositorio/main/nfts/gato/targets.mind; filterMinCF:0.01; filterBeta: 1000;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+<a-scene mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Sya-git/ElRepositorio/main/nfts/gato/onca.mind; filterMinCF:0.1; filterBeta: 1000;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
     <a-assets>
-        <video src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/videos/catdrive.mp4"
-               preload="auto" id="vid" response-type="arraybuffer" loop muted
+        <video src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/videos/engov.mp4"
+               preload="auto" id="video1" response-type="arraybuffer" loop muted
                crossorigin webkit-playsinline autoplay playsinline>
         </video>
-        <video id="simounao" preload="auto" src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/videos/simounao.mp4" loop crossorigin="anonymous" playsinline="" webkit-playsinline=""></video>
+        <video id="video2" preload="auto" src="https://raw.githubusercontent.com/Sya-git/ElRepositorio/refs/heads/main/videos/shopee.mp4" loop crossorigin="anonymous" playsinline="" webkit-playsinline=""></video>
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
     <a-entity mindar-image-target="targetIndex: 0" videohandler>
-        <a-video id="thevid" src="#vid" position='0 0 0'></a-video>
+        <a-video id="thevid" src="#video1" position='0 0 0'></a-video>
         <a-plane id="blackplane" position="0 0 -0.01" scale="1 1 1" color="black"></a-plane>
-        <a-circle  id="lButton" class="clickable" color="#FFDDAA" position="-0.6 0 0.01" radius="0.1" rotation="0 0 0" src-vid="#vid" play-click=""></a-circle>
-        <a-circle  id="rButton" class="clickable" color="#FFDDAA" position="0.6 0 0.01" radius="0.1" rotation="0 0 0" src-vid="#simounao" play-click=""></a-circle>
+        <a-circle  id="lButton" class="clickable" color="#FFDDAA" position="-0.6 0 0.01" radius="0.1" rotation="0 0 0" src-vid="#video1" play-click=""></a-circle>
+        <a-circle  id="rButton" class="clickable" color="#FFDDAA" position="0.6 0 0.01" radius="0.1" rotation="0 0 0" src-vid="#video2" play-click=""></a-circle>
     </a-entity>
 </a-scene>
 </body>

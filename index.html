@@ -8,6 +8,7 @@
         {
             return document.querySelector(srcId);
         }
+        
         function playVideo(clickEvt) {
             var videoEl = document.getElementById('thevid');
             if(!videoEl)
@@ -92,7 +93,7 @@
     <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
     <a-entity mindar-image-target="targetIndex: 0" videohandler>
         <a-video id="thevid" src="#video1" position='0 0 0'></a-video>
-        <a-plane id="blackplane" position="0 0 -0.01" scale="1 1 1" color="black"></a-plane>
+        <a-plane id="blackplane" position="0 0 -0.01" scale="1 1.54 1" color="black"></a-plane>
         <a-circle  id="lButton" class="clickable" color="#FFDDAA" position="-0.6 0 0.01" radius="0.1" rotation="0 0 0" src-vid="#video1" play-click=""></a-circle>
         <a-circle  id="rButton" class="clickable" color="#FFDDAA" position="0.6 0 0.01" radius="0.1" rotation="0 0 0" src-vid="#video2" play-click=""></a-circle>
     </a-entity>
